@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Accounting Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:#f4f7fb;color:#333}
+
+    /* NAV */
+    .navbar{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:#0a2540;color:#fff}
+    .nav-links{display:flex;gap:20px;list-style:none}
+    .nav-links a{color:#fff;text-decoration:none}
+    .menu-toggle{display:none;font-size:24px;cursor:pointer}
+
+    /* HERO */
+    .hero{padding:120px 20px;text-align:center;background:linear-gradient(to right,#0a2540,#007bff);color:#fff}
+    .hero h1{font-size:40px;margin-bottom:10px}
+    .btn{display:inline-block;margin-top:15px;padding:12px 25px;background:#fff;color:#007bff;border-radius:25px;text-decoration:none;font-weight:bold}
+
+    /* SLIDER */
+    .slider{position:relative;max-width:100%;height:300px;overflow:hidden}
+    .slides{display:flex;transition:0.5s}
+    .slides img{width:100%;object-fit:cover}
+
+    /* SECTIONS */
+    section{padding:60px 20px;text-align:center}
+    .grid{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+    .card{background:#fff;padding:25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);width:250px}
+
+    /* PRICING */
+    .pricing .card{border-top:5px solid #007bff}
+
+    /* TESTIMONIALS */
+    .testimonial{max-width:600px;margin:auto;font-style:italic}
+
+    /* CONTACT */
+    form{max-width:400px;margin:auto;display:flex;flex-direction:column;gap:10px}
+    input,textarea{padding:10px;border-radius:5px;border:1px solid #ccc}
+    button{padding:10px;background:#007bff;color:#fff;border:none;border-radius:5px;cursor:pointer}
+
+    footer{background:#0a2540;color:#fff;padding:20px;text-align:center}
+
+    /* MOBILE */
+    @media(max-width:768px){
+      .nav-links{display:none;flex-direction:column;position:absolute;top:60px;right:0;background:#0a2540;width:200px}
+      .nav-links.active{display:flex}
+      .menu-toggle{display:block}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div>Elite Accounting</div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h1>Professional Accounting You Can Trust</h1>
+  <p>Helping businesses save money and grow smarter</p>
+  <a href="#contact" class="btn">Get Started</a>
+</section>
+
+<div class="slider">
+  <div class="slides" id="slides">
+    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f">
+    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40">
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f">
+  </div>
+</div>
+
+<section id="services">
+  <h2>Services</h2>
+  <div class="grid">
+    <div class="card"><h3>Bookkeeping</h3><p>Organized and accurate records</p></div>
+    <div class="card"><h3>Taxes</h3><p>Maximize savings and stay compliant</p></div>
+    <div class="card"><h3>Consulting</h3><p>Grow your business smarter</p></div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <h2>Pricing</h2>
+  <div class="grid">
+    <div class="card"><h3>Basic</h3><p>$99/month</p></div>
+    <div class="card"><h3>Standard</h3><p>$199/month</p></div>
+    <div class="card"><h3>Premium</h3><p>$399/month</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>What Clients Say</h2>
+  <p class="testimonial">“Amazing service! Helped my business save thousands.”</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <form>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Message"></textarea>
+    <button>Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Elite Accounting</p>
+</footer>
+
+<script>
+const toggle=document.getElementById('menu-toggle');
+const nav=document.getElementById('nav-links');
+toggle.onclick=()=>nav.classList.toggle('active');
+
+// AUTO SLIDER
+let index=0;
+const slides=document.getElementById('slides');
+setInterval(()=>{
+  index=(index+1)%3;
+  slides.style.transform=`translateX(-${index*100}%)`;
+},3000);
+</script>
+
+</body>
+</html>
